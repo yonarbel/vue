@@ -23,6 +23,7 @@
 </template>
 
 <script>
+
 import SidebarNew from "@/components/layout_components/SidebarNew.vue"
 export default {
   name: 'App',
