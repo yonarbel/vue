@@ -13,7 +13,16 @@
 
     </v-toolbar>
     <v-content>
-      
+      <img class="main-image" :src="user.hdurl" />
+      mail
+      <input  v-model="form.email"/>
+password
+<input v-model="form.password"/>
+
+<v-btn @click="registerUser" color="success">Register</v-btn>
+<v-btn @click="login" color="success">Login</v-btn>
+The user is:
+{{user}}
       <router-view/>
     </v-content>
     <v-footer :fixed="fixed" app>
@@ -23,28 +32,39 @@
 </template>
 
 <script>
-
-import SidebarNew from "@/components/layout_components/SidebarNew.vue"
+import AuthService from "@/services/dao/auth_dao.js";
+import SidebarNew from "@/components/layout_components/SidebarNew.vue";
 export default {
-  name: 'App',
-  components:{
+  name: "App",
+  components: {
     SidebarNew
   },
-  data () {
+  data() {
     return {
-      clipped:true,
-      fixed:true,
-     drawer:true,
-      title:"Awsome Vue"
-  
+      clipped: true,
+      fixed: true,
+      drawer: true,
+      form: {},
+      title: "Awsome Vue",
+      user: {}
+    };
+  },
+  methods: {
+    registerUser: function() {
+      console.log("Dispatching registeration",this.form)
+      this.$store.dispatch("signup", this.form);
+    },
+    login: function() {
+      this.$store.dispatch("login", this.form);
     }
-  }
-}
+  },
+  created() {}
+};
 </script>
 
 <style lang="scss">
 .v-content__wrap {
-    padding: 20px 30px;
+  padding: 20px 30px;
 }
 </style>
 

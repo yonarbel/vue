@@ -3,7 +3,7 @@ import Vue from "vue";
 import './plugins/vuetify'
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "store/store";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCopyright } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
