@@ -21,8 +21,8 @@ password
 
 <v-btn @click="registerUser" color="success">Register</v-btn>
 <v-btn @click="login" color="success">Login</v-btn>
-The user is:
-{{user}}
+The The user is:
+{{user}} ----- {{authUser}}
       <router-view/>
     </v-content>
     <v-footer :fixed="fixed" app>
@@ -34,6 +34,7 @@ The user is:
 <script>
 import AuthService from "@/services/dao/auth_dao.js";
 import SidebarNew from "@/components/layout_components/SidebarNew.vue";
+import { mapState } from 'vuex';
 export default {
   name: "App",
   components: {
@@ -58,6 +59,7 @@ export default {
       this.$store.dispatch("login", this.form);
     }
   },
+  computed: mapState(['authUser']),
   created() {}
 };
 </script>

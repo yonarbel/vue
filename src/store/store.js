@@ -4,7 +4,7 @@ import axios from '@/axios-auth.js'
 import globalAxios from 'axios'
 import authService from '@/services/dao/auth_dao.js'
 
-import router from './router'
+import router from '@/router'
 
 Vue.use(Vuex)
 
@@ -46,7 +46,7 @@ export default new Vuex.Store({
           localStorage.setItem('token', res.data.idToken)
           localStorage.setItem('userId', res.data.localId)
           localStorage.setItem('expirationDate', expirationDate)
-          dispatch('storeUser', authData)
+          //dispatch('storeUser', authData)
           dispatch('setLogoutTimer', res.data.expiresIn)
         })
         .catch(error => console.log(error))
