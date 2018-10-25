@@ -7,8 +7,9 @@ import authService from '@/services/dao/auth_dao.js'
 import router from '@/router'
 
 Vue.use(Vuex)
-
+import createLogger from 'vuex/dist/logger'
 export default new Vuex.Store({
+  plugins:[createLogger()],
   state: {
     idToken: null,
     userId: null,
@@ -52,6 +53,18 @@ export default new Vuex.Store({
         .catch(error => console.log(error))
     },
     login ({commit, dispatch}, authData) {
+
+      globalAxios.post('http://localhost:8000/ui/auth/login', {
+        name: 'admin',
+        lastName: 'Password1'
+      })
+      .then(function (response) {
+        console.log('!!!!!!',response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      
       authService.login(authData)
         .then(res => {
           commit('authUser', {
