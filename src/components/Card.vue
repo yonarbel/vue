@@ -1,16 +1,18 @@
 <template>
-    <v-layout row>
-      <v-flex xs12 sm6 offset-sm3>
         <v-card>
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+         <!-- <v-img v-if="user"
+            :src="user.avatar_url"
             height="200px"
           >
-          </v-img>
+          </v-img> -->
+  <v-parallax
+    height="300"
+    :src="user.avatar_url"
+  ></v-parallax>
   
           <v-card-title primary-title>
             <div>
-              <div class="headline">Top western road trips</div>
+              <div class="headline">{{user.login}}</div>
               <span class="grey--text">1,000 miles of wonder -- {{expand}}</span>
             </div>
           </v-card-title>
@@ -30,22 +32,20 @@
             </v-card-text>
           </v-slide-y-transition>
         </v-card>
-      </v-flex>
-    </v-layout>
 </template>
 
    <script>
 export default {
   name: "Card",
-  props: {
-   show: {
-    default: true,
-    type: Boolean
-  }
-  },
+ props:["user"],
   data:
-       function(){
-        return {expand:this.show}  
+       ()=>{
+        return {
+          expand:false
+          
+          }
+          
+          
   },
   computed:{
       expandInfo: function(){

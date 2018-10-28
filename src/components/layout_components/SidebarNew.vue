@@ -74,6 +74,12 @@ drawer:Boolean
             { title: 'New American' },
             { title: 'Sushi' }
           ]
+        },
+        {
+          action: 'folder_open',
+          linkTo:'/users',
+          title: 'Users',
+  
         }
       ],
       miniVariant: false,

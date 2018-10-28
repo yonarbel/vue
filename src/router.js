@@ -31,6 +31,12 @@ export default new Router({
         import(/* webpackChunkName: "about-nested" */ "./views/About.vue")
     },
     {
+      path: "/users/",
+      name: "user",
+      component: User,
+      props:true
+    },
+    {
       path: "/user/:username",
       name: "user",
       component: User,

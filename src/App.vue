@@ -50,6 +50,7 @@ export default {
       user: {}
     };
   },
+ 
   methods: {
     registerUser: function() {
       console.log("Dispatching registeration",this.form)
